@@ -68,20 +68,11 @@ public class OrganizationsTest extends BaseTest
 
         organizationId = json.getString("id");
 
-        methodNameUsingClassInstance =
-                new OrganizationsTest() {}.getClass().getEnclosingMethod().getName();
-
-        try
-        {
-            assertThat(json.getString("name")).isEqualTo("ORGANIZATION_NAME");
-        }
-        catch(AssertionError e)
-        {
-            System.out.println("Error from method " + methodNameUsingClassInstance + " :" + e);
-        }
+        assertThat(json.getString("name")).isEqualTo("ORGANIZATION_NAME");
 
         deleteOrganization();
     }
+
 
 
     @Test
@@ -102,17 +93,7 @@ public class OrganizationsTest extends BaseTest
         JsonPath json = response.jsonPath();
         organizationId = json.getString("id");
 
-        methodNameUsingClassInstance =
-                new OrganizationsTest() {}.getClass().getEnclosingMethod().getName();
-
-        try
-        {
-            assertThat(json.getString("name")).isEqualTo("N");
-        }
-        catch(AssertionError e)
-        {
-            System.out.println("Error from method " + methodNameUsingClassInstance + " :" + e);
-        }
+        assertThat(json.getString("name")).isEqualTo("N");
 
         deleteOrganization();
     }
@@ -134,17 +115,8 @@ public class OrganizationsTest extends BaseTest
         JsonPath json = response.jsonPath();
         organizationId = json.getString("id");
 
-        methodNameUsingClassInstance =
-                new OrganizationsTest() {}.getClass().getEnclosingMethod().getName();
 
-        try
-        {
-            assertThat(json.getString("name")).isEqualTo(" ");
-        }
-        catch(AssertionError e)
-        {
-            System.out.println("Error from method " + methodNameUsingClassInstance + " :" + e);
-        }
+        assertThat(json.getString("name")).isEqualTo(" ");
 
         deleteOrganization();
     }
